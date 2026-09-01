@@ -32,7 +32,7 @@ void TCB::dispatch() {
         if (!old->getFinished()) {
             next = old;
         }
-        else {//greska, sistem nema sta da runuje
+        else {
             return;
         }
     }
@@ -63,12 +63,9 @@ TCB::TCB(Body body, void* arg, uint64 timeSlice, uint64* stackptr) :
     }
 }
 
-
-
 void TCB::threadWrapper() {
     RiscV::popSppSpie();//morala je da ne bude inline da bi mogli da se vratimo nazad na izvrsavanje odavde,
     running->body(running->arg);
-
     running->setFinished(true);
     TCB::yield();
 }
@@ -84,11 +81,3 @@ TCB::~TCB() {
         delete[] stack;
     }
 }
-//if (next && next != old) {
-//   while ( next && next->getFinished()) {
-//      delete next;
-//     next = Scheduler::get();
-//    if (!next)break;
-//}
-// }
-
