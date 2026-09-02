@@ -11,7 +11,6 @@ userMain();
 }
 int main()
 {
-    //printStringLocal("here");
     RiscV::write_stvec((uint64) &RiscV::supervisorTrap);
     TCB* mainNit;
     thread_create(&mainNit, nullptr, nullptr);
