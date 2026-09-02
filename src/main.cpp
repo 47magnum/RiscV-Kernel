@@ -1,7 +1,3 @@
-//
-// Created by marko on 20.4.22..
-//
-
 #include "../inc/TCB.hpp"
 #include "../inc/RiscV.hpp"
 #include "../inc/syscall_c.hpp"
